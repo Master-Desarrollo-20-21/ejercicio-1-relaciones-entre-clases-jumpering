@@ -1,15 +1,16 @@
 # Dudas "Grupo los primeros":
 integrantes del grupo:
-Raúl Castillo
-Victor Hugo Vallejos
-Agustín Cisneros
-Alejandro De Diego
-Luis Escobar
-Xavi Gómez
-Jesus Enrique Cabeza Acero
-Alberto Dominguez Martín
-Leonardo Hakim
+- Raúl Castillo
+- Victor Hugo Vallejos
+- Agustín Cisneros
+- Alejandro De Diego
+- Luis Escobar
+- Xavi Gómez
+- Jesus Enrique Cabeza Acero
+- Alberto Dominguez Martín
+- Leonardo Hakim
 
+La clase Attempt y Result tienen el mismo nombre de método ( isWinner() ). ¿Es un buen estilo?
 
 
 # Ejercicio 1 de Diseño Orientado a Objetos
