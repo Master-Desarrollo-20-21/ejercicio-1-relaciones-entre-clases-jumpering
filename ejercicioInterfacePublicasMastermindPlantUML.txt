@@ -1,42 +1,50 @@
 @startuml
 class Mastermind {
-- board : Board
 + play() : void
-+ main() : void
++ {static} main() : void
 - isResumed()
 }
 
 
 
-class IO{
-}
-
-
-
-class Board{
-- resultList : List<Result>
-- secret : Secret
-- counResults : int
+class Game{
 - {static} ATTEMPTS : int
 + play() : void
-+ showAllResults() :void
+- showAllAttempts() :void
+- isFinished() : boolean
 }
 
+class Attempt{
+- piecesBlack : int
+- piecesWhite : int
++toString() : String
++isWinner() : boolean
++ read(SecretCombination secretCombination) : void
 
 
-class Secret{
-+ getRandom() : Combination
-+ showAsterisks() : void
+}
+note right: Alternativas de nombres para el método read(): \nreadPieces()\ngetBlacksWhites()?
+
+
+Attempt *--> ProposedCombination
+Attempt ..> SecretCombination
+Game o-->"0..10" Attempt 
+
+class SecretCombination{
+- getRandom() : Combination
++ getBlacks(ProposedCombination proposedCombination) : int
++ getWhites(ProposedCombination proposedCombination) : int
++ toString() : String
 }
 
 
 
 class ProposedCombination{
 - userInput : String
-- PATTERN : Pattern
-- checkIntegrity() : boolean
-- isCorrectLength() : boolean
-- isCharColors() : boolean
++ read() : void
+- isValid() : boolean
+- isValidLength() : boolean
+- isValidColors() : boolean
 - isUniqueChars() : boolean
 }
 
@@ -44,22 +52,11 @@ class ProposedCombination{
 
 class Combination{
 - colorList : ArrayList<Color>
-# show() : void
++ getColors() : List<Color>
+# toString() : String
 # size() : int
 }
 
-
-
-class Result
-{
-- proposedCombination : ProposedCombination
-- secret : Secret
-- piecesBlack : int
-- piecesWhite : int
-+ Result(ProposedCombination proposedCombination)
-+ showResult() : void
-+ numberOfBlackPieces() : int
-}
 
 
 
@@ -70,20 +67,18 @@ YELLOW
 ORANGE
 PINK
 GREEN
-+ getKeyword() : int
-+ {static} valueOf() : Color
++ toChar() : char
++ {static} valueOf(char character) : Color
++ {static} isValidColor(char character) : boolean
 }
 
 
-Mastermind *-down-> Board
-Board *-down-> "0 . 10" Result
-Board *-down-> Secret
-Board ..> IO
-Board o--> ProposedCombination
-Secret -up-^ Combination
-Secret -down-> Result
+Mastermind *--> Game
+Game *--> SecretCombination
+Game ..> Console
+SecretCombination -up-^ Combination
 ProposedCombination -up-^ Combination
-ProposedCombination ..> IO
-ProposedCombination --> Result
-Combination -down-> Color
+ProposedCombination ..> Console
+Mastermind ..> Console
+Combination *-->"4" Color
 @enduml
