@@ -10,7 +10,6 @@ integrantes del grupo:
 - Alberto Dominguez Martín
 - Leonardo Hakim
 
-La clase Attempt y Result tienen el mismo nombre de método ( isWinner() ). ¿Es un buen estilo?
 
 
 # Ejercicio 1 de Diseño Orientado a Objetos
