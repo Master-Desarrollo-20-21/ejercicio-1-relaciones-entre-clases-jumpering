@@ -19,11 +19,10 @@ class Attempt{
 - piecesWhite : int
 +toString() : String
 +isWinner() : boolean
-+ read(SecretCombination secretCombination) : void
++ play(SecretCombination secretCombination) : void
 
 
 }
-note right: Alternativas de nombres para el método read(): \nreadPieces()\ngetBlacksWhites()?
 
 
 Attempt *--> ProposedCombination
@@ -80,4 +79,5 @@ ProposedCombination -up-^ Combination
 ProposedCombination ..> Console
 Mastermind ..> Console
 Combination *-->"4" Color
+SecretCombination ..> ProposedCombination
 @enduml
