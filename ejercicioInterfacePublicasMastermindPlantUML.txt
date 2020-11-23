@@ -31,7 +31,7 @@ Attempt ..> SecretCombination
 Game o-->"0..10" Attempt 
 
 class SecretCombination{
-- getRandom() : Combination
+- generateRandom() : void
 + getBlacks(ProposedCombination proposedCombination) : int
 + getWhites(ProposedCombination proposedCombination) : int
 + toString() : String
@@ -50,9 +50,8 @@ class ProposedCombination{
 
 
 
-class Combination{
+abstract class Combination{
 - colorList : ArrayList<Color>
-+ getColors() : List<Color>
 # toString() : String
 # size() : int
 }
